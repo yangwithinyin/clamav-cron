@@ -13,32 +13,34 @@ You can find the original script here:
 
 https://code.google.com/p/clamav-cron/
 
-Functions performed:
+Functions performed (in order):
 
-update the ClamAV virus database (freshclam)
-perform personal system scan (clamscan)
-send a brief report via e-mail (sendmail)
+1. Update the ClamAV virus database (freshclam).
+2. Perform personal system scan (clamscan).
+3. Send a brief report via e-mail (sendmail).
 
 without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf) and without running the ClamAV daemon. You just have to configure the e-mail address(es) that will receive the report.
 
 Dependencies:
 
-The ClamAV engine and daemon.
+The ClamAV engine (clamav).
 A mail server, e.g. sendmail.
 
 Installation and configuration:
 
-1. Download clamav-cron somewhere like /usr/local/bin/ and give it execute permissions.
+1. Download clamav-cron.sh somewhere like /usr/local/bin/ and give it execute permissions.
 
-2. chmod 755 /usr/local/bin/clamav-cron
+2. Set the permissions on clamav-cron.sh
+ 
+	chmod 755 /usr/local/bin/clamav-cron.sh
 
 3. Open clamav-cron, and edit the "User configuration" section.
 
-4. schedule the clamav-cron script via cron.
+4. Schedule clamav-cron.sh via crontab.
 
-crontab -e 
+	crontab -e 
 
-45 23 * * 5 /usr/local/bin/clamav-cron /
+	45 23 * * 5 /usr/local/bin/clamav-cron.sh /
 
 Cron will run clamav-cron every Friday at 23:45 (11:45 pm) to recursively scan the whole / tree. 
 
