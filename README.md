@@ -30,9 +30,11 @@ Installation and configuration:
 
 1. Download clamav-cron.sh somewhere like /usr/local/bin/ and give it execute permissions.
 
-2. Set the permissions on clamav-cron.sh
+2. Set the permissions required for clamav-cron.sh to run properly.
  
 	chmod 755 /usr/local/bin/clamav-cron.sh
+        chown clamav:clamav /usr/local/bin/clamav-cron.sh
+        chown clamav:clamav /var/log/clamav
 
 3. Open clamav-cron, and edit the "User configuration" section.
 
