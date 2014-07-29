@@ -24,7 +24,8 @@ without any knowledge about ClamAV configuration files (such as clamd.conf or fr
 Dependencies:
 
 The ClamAV engine (clamav).
-A mail server, e.g. sendmail.
+
+A mail server (e.g. sendmail).
 
 Installation and configuration:
 
@@ -33,7 +34,9 @@ Installation and configuration:
 2. Set the permissions required for clamav-cron.sh to run properly.
  
 	chmod 755 /usr/local/bin/clamav-cron.sh
+
         chown clamav:clamav /usr/local/bin/clamav-cron.sh
+        
         chown clamav:clamav /var/log/clamav
 
 3. Open clamav-cron, and edit the "User configuration" section.
