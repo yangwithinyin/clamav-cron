@@ -7,7 +7,11 @@ This is a bash script for those who want to schedule a clamscan and e-mail a rep
 
 Licensing:
 
-This is free software licensed under the GPLv3 and is based on the original script Copyright © 2009, by Stefano Stagnaro.
+This is free software licensed under the GPLv3 and is based on the original script by Stefano Stagnaro.
+
+You can find the original script here:
+
+https://code.google.com/p/clamav-cron/
 
 Functions performed:
 
