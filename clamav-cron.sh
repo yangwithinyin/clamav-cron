@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
-# clamav-cron.sh v. 0.7 - Modified by Mark Parraway
+# clamav-cron.sh v. 0.8 - Modified by Mark Parraway
 # This is Free Software released under the GNU GPL license version 3
 
 #============================================#
@@ -22,13 +22,13 @@ CV_MAILTO="user@yourdomain.com"
 CV_MAILTO_CC="user2@yourdomain.com; user3@otherdomain.org"
 
 # Notification e-mail subject:
-CV_SUBJECT="Your Organization - ClamAV scan report"
+CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 #============================================#
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
-CV_VERSION_FORK="0.7"
+CV_VERSION_FORK="0.8"
 
 if [ -e $CV_LOGFILE ]
 then
@@ -61,9 +61,9 @@ CLAMSCAN=$?
 if [ "$CLAMSCAN" -eq "1" ]
 then
         CV_SUBJECT="[VIRUS!] "$CV_SUBJECT
+        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 elif [ "$CLAMSCAN" -gt "1" ]
 then
         CV_SUBJECT="[ERR] "$CV_SUBJECT
+        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 fi
-
-/bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
