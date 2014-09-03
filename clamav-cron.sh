@@ -15,7 +15,7 @@
 #============================================#
 #        User configuration section          #
 #============================================#
-
+h
 # Log file name and its path:
 #CV_LOGFILE="$HOME/clamav-cron.log"
 CV_LOGFILE="/var/log/clamav/clamav-cron.log"
@@ -65,6 +65,7 @@ echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 #To be read on stdout (and root mail):
 echo -e '------------------------------------\n'
 
+# Must be symlinked on Debian based systems
 /usr/local/bin/clamscan --infected --log=$CV_LOGFILE --recursive $CV_TARGET --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/media --exclude=/mnt
 CLAMSCAN=$?
 
