@@ -19,7 +19,7 @@ https://code.google.com/p/clamav-cron/
 2. Perform personal system scan (clamdscan).
 3. Send a brief report upon virus detection via e-mail (sendmail).
 
-Without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf) and without running the ClamAV daemon. You only need to configure the e-mail address(es) that will receive the report.
+Without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf). You only need to configure the e-mail address(es) that will receive the report.
 
 # Dependencies:
 
