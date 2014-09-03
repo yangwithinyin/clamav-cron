@@ -11,7 +11,16 @@
 #        DO NOT EDIT DO NOT EDIT             #
 #============================================#
 
+# Update packages, setup clamav and sendmail
+
 apt-get -y update && apt-get -y install clamav clamav-daemon sendmail
+
+# Update virus definitions
+
+freshclam
+
+# Download, configure, and setup symlinks for clamav-cron
+
 cd ~
 wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
 ln -s /usr/sbin/sendmail /bin/mail
@@ -23,4 +32,7 @@ chown clamav:clamav /var/log/clamav
 chown root: /var/lib/clamav
 chmod g+w /var/lib/clamav
 touch /var/log/clamav/clamav-cron.log
-/usr/bin/freshclam
+
+# Debian clamav daemon restart
+
+service clamav-daemon restart
