@@ -11,28 +11,31 @@
 #        DO NOT EDIT DO NOT EDIT             #
 #============================================#
 
-# Download clamav-cron.sh
-
-cd ~
-wget --no-check-certificate https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
-cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
-
-# Make sure to configure/setup sendmail
-
 # Update ports
 
 portsnap update
 portsnap fetch
 
-# Add clamav and update definitions
+# Setup clamav 
 
 pkg_add -r clamav
+
+# Update virus definitions
+
+freshclam
+
+# Download, configure, and setup symlinks for clamav-cron
+
+cd ~
+wget --no-check-certificate https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
+cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
 ln -s /usr/local/bin/clamscan  /usr/bin/clamscan
 ln -s /usr/local/bin/freshclam /usr/bin/freshclam
 ln -s /usr/sbin/sendmail /bin/mail
 chown -R clamav:clamav /var/log/clamav
 touch /var/log/clamav/clamav-cron.log
-freshclam
+
+# Make sure to configure/setup sendmail
 
 # FreeBSD specific daemon settings and startup
 
