@@ -33,6 +33,8 @@ CV_MAILTO_CC="user2@yourdomain.com; user3@otherdomain.org"
 CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 #============================================#
+#        DO NOT EDIT DO NOT EDIT             #
+#============================================#
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
