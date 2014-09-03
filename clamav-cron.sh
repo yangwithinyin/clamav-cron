@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro, Modified by Mark Parraway
-# clamav-cron easy v. 0.8.1 - Created by Mark Parraway
+# clamav-cron easy v. 0.8.2 - Created by Mark Parraway
 # This is Free Software released under the GNU GPL license version 3
 #
 # clamav-cron.sh - quick crontab script tested on Ubuntu 12.04 LTS
@@ -15,7 +15,7 @@
 #============================================#
 #        User configuration section          #
 #============================================#
-
+h
 # Log file name and its path:
 #CV_LOGFILE="$HOME/clamav-cron.log"
 CV_LOGFILE="/var/log/clamav/clamav-cron.log"
@@ -32,6 +32,8 @@ CV_MAILTO_CC="user2@yourdomain.com; user3@otherdomain.org"
 # Notification e-mail subject:
 CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
+#============================================#
+#        DO NOT EDIT DO NOT EDIT             #
 #============================================#
 
 CV_TARGET="$1"
@@ -63,13 +65,14 @@ echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 #To be read on stdout (and root mail):
 echo -e '------------------------------------\n'
 
-/usr/bin/clamscan --infected --log=$CV_LOGFILE --recursive $CV_TARGET --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/media --exclude=/mnt
+# Must be symlinked on Debian based systems
+/usr/local/bin/clamscan --infected --log=$CV_LOGFILE --recursive $CV_TARGET --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/media --exclude=/mnt
 CLAMSCAN=$?
 
 if [ "$CLAMSCAN" -eq "1" ]
 then
         CV_SUBJECT="[VIRUS!] "$CV_SUBJECT
-        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
+        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILEcl
 elif [ "$CLAMSCAN" -gt "1" ]
 then
         CV_SUBJECT="[ERR] "$CV_SUBJECT
