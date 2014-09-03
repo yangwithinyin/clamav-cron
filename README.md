@@ -29,8 +29,7 @@ A mail server (e.g. sendmail).
 
 # Installation and configuration:
 
-## Download and copy clamav-cron.sh somewhere
-### Like /usr/local/bin/
+## Download and copy clamav-cron.sh to /usr/local/bin/
 
 ```
 cd ~
@@ -46,7 +45,7 @@ chown clamav:clamav /usr/local/bin/clamav-cron.sh
 chown clamav:clamav /var/log/clamav
 ```
 ## Update clamav-cron "User configuration"
-### Open /usr/local/bin/clamav-cron in your favorite editor
+### Open /usr/local/bin/clamav-cron.sh in your favorite editor
 #### Update the "User configuration" section.
 
 ```
