@@ -33,12 +33,14 @@ A mail server (e.g. sendmail).
 
 ### Supported Installations
 
-Debian/Ubuntu (debian-setup.sh)
-FreeBSD (freebsd-setup.sh)
-
+Debian/Ubuntu quick setup (debian-setup.sh)
 ```
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian-setup.sh
+```
+
+FreeBSD  quick setup (freebsd-setup.sh)
+```
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd-setup.sh
 ```
 
 
