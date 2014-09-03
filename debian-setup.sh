@@ -5,8 +5,6 @@
 # This is Free Software released under the GNU GPL license version 3
 #
 # debian-setup.sh - quick debian/ubuntu setup script tested on Ubuntu 12.04 LTS
-# Test setup with /usr/local/bin/clamav-cron.sh
-# Add to crontab e.g. 45 23 * * 5 /usr/local/bin/clamav-cron.sh /
 #
 
 #============================================#
