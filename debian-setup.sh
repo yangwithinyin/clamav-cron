@@ -1,10 +1,17 @@
 #!/bin/bash
 #
-# debian-setup.sh - quick debian/ubuntu setup script tested on Ubuntu 12.04 LTS
-#
 # clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
-# included with clamav-cron v. 0.8.1 - Modified by Mark Parraway
+# clamav-cron v. 0.8.1 - Modified by Mark Parraway
 # This is Free Software released under the GNU GPL license version 3
+#
+# debian-setup.sh - quick debian/ubuntu setup script tested on Ubuntu 12.04 LTS
+# Test setup with /usr/local/bin/clamav-cron.sh
+# Add to crontab e.g. 45 23 * * 5 /usr/local/bin/clamav-cron.sh /
+#
+
+#============================================#
+#        DO NOT EDIT DO NOT EDIT             #
+#============================================#
 
 apt-get -y update && apt-get -y install clamav clamav-daemon sendmail
 cd ~
@@ -17,3 +24,4 @@ chown clamav:clamav /var/log/clamav
 chown root: /var/lib/clamav
 chmod g+w /var/lib/clamav
 touch /var/log/clamav/clamav-cron.log
+
