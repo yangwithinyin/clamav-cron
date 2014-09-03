@@ -1,4 +1,4 @@
-clamav-cron
+clamav-cron 
 =========
 
 Overview:
@@ -29,7 +29,7 @@ A mail server (e.g. sendmail).
 
 Installation and configuration:
 
-1. Download clamav-cron.sh somewhere like /usr/local/bin/ and give it execute permissions.
+1. Download clamav-cron.sh somewhere, and copy it to somewhere like /usr/local/bin/ and give it execute permissions.
 
 2. Set the permissions required for clamav-cron.sh to run properly.
 
@@ -38,7 +38,24 @@ chmod 755 /usr/local/bin/clamav-cron.sh
 chown clamav:clamav /usr/local/bin/clamav-cron.sh
 chown clamav:clamav /var/log/clamav
 ```
-3. Open clamav-cron, and edit the "User configuration" section.
+
+3. Open /usr/local/bin/clamav-cron in your favorite editor, and update the "User configuration" section.
+
+```
+CV_LOGFILE="/var/log/clamav/clamav-cron.log" 
+
+# Notification e-mail sender (will work when invalid):
+CV_MAILFROM="user@server.tld" 
+
+# Notification e-mail recipient (must be valid):
+CV_MAILTO="user@maildomain.tld" 
+
+# Notification e-mail secondary recipients (must be valid):
+CV_MAILTO_CC="webmaster@yourcompany.tld" 
+
+# Notification e-mail subject:
+CV_SUBJECT="Your Company - ClamAV scan report" 
+```
 
 4. Schedule clamav-cron.sh via crontab.
 
