@@ -1,4 +1,4 @@
-clamav-cron easy v. 0.8.1
+clamav-cron easy v. 0.8.2
 =========
 
 # Overview:
@@ -16,18 +16,33 @@ https://code.google.com/p/clamav-cron/
 # Functions performed (in order):
 
 1. Update the ClamAV virus database (freshclam).
-2. Perform personal system scan (clamscan).
+2. Perform personal system scan (clamdscan).
 3. Send a brief report upon virus detection via e-mail (sendmail).
 
-Without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf) and without running the ClamAV daemon. You only need to configure the e-mail address(es) that will receive the report.
+Without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf). You only need to configure the e-mail address(es) that will receive the report.
 
 # Dependencies:
 
-The ClamAV engine (clamav).
+The ClamAV engine and daemon (clamav).
 
 A mail server (e.g. sendmail).
 
 # Installation and configuration:
+
+## Use the setup scripts for the intiial install
+
+### Supported Installations
+
+Debian/Ubuntu quick setup (debian-setup.sh)
+```
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian-setup.sh
+```
+
+FreeBSD  quick setup (freebsd-setup.sh)
+```
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd-setup.sh
+```
+
 
 ## Download and copy clamav-cron.sh to /usr/local/bin/
 
@@ -46,9 +61,13 @@ chown clamav:clamav /var/log/clamav
 ```
 ## Update clamav-cron "User configuration"
 ### Open /usr/local/bin/clamav-cron.sh in your favorite editor
-#### Update the "User configuration" section.
 
 ```
+#============================================#
+#        User configuration section          #
+#============================================#
+
+# Log file name and its path:
 CV_LOGFILE="/var/log/clamav/clamav-cron.log" 
 
 # Notification e-mail sender (will work when invalid):
