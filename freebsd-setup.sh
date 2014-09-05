@@ -29,6 +29,8 @@ freshclam
 cd ~
 wget --no-check-certificate https://raw.githubusercontent.com/yangwithinyin/clamav-cron/0.8.1/clamav-cron.sh
 cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
+ln -s /usr/local/bin/clamscan  /usr/bin/clamscan
+ln -s /usr/local/bin/freshclam /usr/bin/freshclam
 ln -s /usr/sbin/sendmail /bin/mail
 chown -R clamav:clamav /var/log/clamav
 touch /var/log/clamav/clamav-cron.log
