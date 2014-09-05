@@ -1,4 +1,4 @@
-clamav-cron easy v. 0.8.1
+clamav-cron
 =========
 
 # Overview:
