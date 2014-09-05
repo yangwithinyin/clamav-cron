@@ -29,7 +29,7 @@ A mail server (e.g. sendmail).
 
 # Installation and configuration:
 
-## Use the setup scripts for the intiial install
+## Use the setup scripts for the intial install
 
 ### Supported Installations
 
