@@ -1,10 +1,21 @@
 #!/bin/bash
+
+# =============================================================================
+# - title        : Scanning and mailing script for crontab scans
+# - description  : Initiates a clamscan (without a daemon) on system
+# - author       : Mark Parraway
+# - date         : 2014-09-04
+# - version      : 0.8.3
+# - usage        : bash clamav-cron.sh
+# - oses         : Linux
+# =============================================================================
 #
-# clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro, Modified by Mark Parraway
-# clamav-cron easy v. 0.8.2 - Created by Mark Parraway
+# - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
+# - site         : https://code.google.com/p/clamav-cron/
+#
 # This is Free Software released under the GNU GPL license version 3
 #
-# clamav-cron.sh - quick crontab script tested on Ubuntu 12.04 LTS
+# =============================================================================
 #
 # Test setup with /usr/local/bin/clamav-cron.sh
 #
@@ -15,7 +26,7 @@
 #============================================#
 #        User configuration section          #
 #============================================#
-h
+
 # Log file name and its path:
 #CV_LOGFILE="$HOME/clamav-cron.log"
 CV_LOGFILE="/var/log/clamav/clamav-cron.log"
@@ -60,21 +71,24 @@ echo -e Script: `basename $0` v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stag
 echo -e Script: `basename $0` v. $CV_VERSION_FORK - Modified by Mark Parraway  >> $CV_LOGFILE
 echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 
-/usr/bin/freshclam --log=$CV_LOGFILE --user $USER --verbose
+# /usr/local/bin may need to be symlinked
+# easy symlink in your OS setup script
+# e.g. debian-setup.sh
+
+/usr/local/bin/freshclam --log=$CV_LOGFILE --user $USER --verbose
 
 #To be read on stdout (and root mail):
 echo -e '------------------------------------\n'
 
-# Must be symlinked on Debian based systems
 /usr/local/bin/clamscan --infected --log=$CV_LOGFILE --recursive $CV_TARGET --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/media --exclude=/mnt
 CLAMSCAN=$?
 
 if [ "$CLAMSCAN" -eq "1" ]
 then
         CV_SUBJECT="[VIRUS!] "$CV_SUBJECT
-        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILEcl
+        /usr/local/bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILEcl
 elif [ "$CLAMSCAN" -gt "1" ]
 then
         CV_SUBJECT="[ERR] "$CV_SUBJECT
-        /bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
+        /usr/local/bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 fi
