@@ -75,7 +75,6 @@ echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 
 # /usr/local/bin/stuff may need to be symlinked
 # easy symlink in your OS setup script
-# you may use debian-setup.sh to set this up
 
 /usr/local/bin/freshclam --log=$CV_LOGFILE --user $USER --verbose
 
