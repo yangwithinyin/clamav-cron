@@ -6,7 +6,7 @@
 # - author       : Mark Parraway
 # - date         : 2014-09-04
 # - version      : 0.8.3
-# - usage        : bash clamav-easy.sh
+# - usage        : bash clamav-cron.sh
 # - OS Supported : Debian
 # =============================================================================
 #
@@ -17,10 +17,8 @@
 # This is Free Software released under the GNU GPL license version 3
 #
 #===========================================#
-#   TESTING AND CRONTAB SETUP INSTRUCTIONS  #
+#        CRONTAB SETUP INSTRUCTIONS         #
 #===========================================#
-#
-# Test with clamav-cron.sh wrapper script.
 #
 # Add to crontab, e.g. crontab -e
 # 45 23 * * 5 /usr/local/bin/clamav-cron.sh /
@@ -36,16 +34,16 @@
 CV_LOGFILE="/var/log/clamav/clamav-cron.log"
 
 # Notification e-mail sender:
-CV_MAILFROM="noreply@yourdomain.org"
+CV_MAILFROM="clamav@yourserver.net"
 
 # Notification e-mail recipient:
-CV_MAILTO="test@mydomain.org"
+CV_MAILTO="user@yourdomain.com"
 
 # Notification e-mail secondary recipients:
-#CV_MAILTO_CC="user2@yourdomain.com; user3@otherdomain.org"
+CV_MAILTO_CC="user2@yourdomain.com; user3@otherdomain.org"
 
 # Notification e-mail subject:
-CV_SUBJECT="Test Organizatino - Critical ClamAV scan report"
+CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 #
 #============================================#
@@ -115,6 +113,9 @@ sed -e 's/\<mnt\>//g' /tmp/clamdscan.files > /tmp/temp.files
 # /dev /proc /sys /media /mnt
 
 sed -e 's/\<run\>//g' /tmp/temp.files > /tmp/clamdscan.files
+
+# comment out for scanning /tmp
+
 sed -e 's/\<tmp\>//g' /tmp/clamdscan.files > /tmp/temp.files
 
 # clean out blank lines
