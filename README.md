@@ -1,5 +1,7 @@
-clamav-cron v. 0.8.2 (abandoned)
+clamav-cron v. 0.8.2 (buggy)
 =========
+
+This branch is buggy. Use at your own risk.
 
 # Overview:
 
