@@ -1,9 +1,9 @@
-clamav-cron easy v. 0.8.2
+clamav-cron
 =========
 
 # Overview:
 
-This is a simple and easy to configure bash script, for those who want to schedule definition updates, scanning, and e-mail a report via the local MTA.
+This is an easy to configure bash script, for those who want to schedule definition updates, scanning, and e-mail a report upon any virus detection or clamav-cron errors via the local MTA.
 
 # Licensing:
 
@@ -16,35 +16,46 @@ https://code.google.com/p/clamav-cron/
 # Functions performed (in order):
 
 1. Update the ClamAV virus database (freshclam).
-2. Perform personal system scan (clamdscan).
+2. Perform personal system scan (clamscan/clamdscan).
 3. Send a brief report upon virus detection via e-mail (sendmail).
 
 Without any knowledge about ClamAV configuration files (such as clamd.conf or freshclam.conf). You only need to configure the e-mail address(es) that will receive the report.
 
 # Dependencies:
 
-The ClamAV engine and daemon (clamav).
+The ClamAV engine (clamav).
 
-A mail server (e.g. sendmail).
+A mail server (sendmail). required for sending mail reports).
+
+## w/ easy setup script:
+
+The ClamAV daemon (clamd).
 
 # Installation and configuration:
 
-## Use the setup scripts for the intiial install
+## Option 1. Use the setup scripts for the intial install
 
-### Supported Installations
+### Requires: ClamAV daemon (clamd)
+
+#### Supported Installations
 
 Debian/Ubuntu quick setup (debian-setup.sh)
 ```
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian-setup.sh
+mkdir -p /opt/clamav-cron
+cd /opt/clamav-cron
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian/debian-setup.sh
+chmod 755 debian-setup.sh
 ```
 
-FreeBSD  quick setup (freebsd-setup.sh)
+FreeBSD quick setup (freebsd-setup.sh)
 ```
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd-setup.sh
+mkdir -p /opt/clamav-cron
+cd /opt/clamav-cron
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd/freebsd-setup.sh
+chmod 755 freebsd-setup.sh
 ```
 
-
-## Download and copy clamav-cron.sh to /usr/local/bin/
+## Option 2. Download and copy clamav-cron.sh to /usr/local/bin/
 
 ```
 cd ~
