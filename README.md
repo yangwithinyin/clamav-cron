@@ -23,7 +23,7 @@ Without any knowledge about ClamAV configuration files (such as clamd.conf or fr
 
 # Dependencies:
 
-The ClamAV engine (clamav)..
+The ClamAV engine (clamav).
 
 A mail server (sendmail). required for sending mail reports).
 
@@ -35,7 +35,9 @@ The ClamAV daemon (clamd).
 
 ## Option 1. Use the setup scripts for the intial install
 
-### Supported Installations
+### Requires: ClamAV daemon (clamd)
+
+#### Supported Installations
 
 Debian/Ubuntu quick setup (debian-setup.sh)
 ```
