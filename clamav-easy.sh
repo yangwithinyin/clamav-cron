@@ -2,7 +2,7 @@
 
 # =============================================================================
 # - title        : Scanning and mailing script for crontab scans
-# - description  : Initiates scan targets on clamdscan (ClamAV daemon clamd)
+# - description  : Initiates scan targets on clamscand (ClamAV daemon clamd)
 # - author       : Mark Parraway
 # - date         : 2014-09-04
 # - version      : 0.8.3
@@ -82,7 +82,7 @@ cd /
 # easy symlink in your OS setup script
 # e.g. debian-setup.sh
 
-/usr/local/bin/clamdscan --fdpass --log=$CV_LOGFILE --file-list=/tmp/clamdscan.files
+/usr/local/bin/clamscand --fdpass --log=$CV_LOGFILE --file-list=/tmp/clamscand.files
 
 CLAMSCAN=$?
 
