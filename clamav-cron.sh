@@ -17,8 +17,6 @@
 #
 # =============================================================================
 #
-# Test setup with /usr/local/bin/clamav-cron.sh
-#
 # Add to crontab, e.g. crontab -e
 # 45 23 * * 5 /usr/local/bin/clamav-cron.sh /
 #
