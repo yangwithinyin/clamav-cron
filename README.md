@@ -1,4 +1,4 @@
-clamav-cron easy v. 0.8.2
+clamav-cron v. 0.8.2 (abandoned)
 =========
 
 # Overview:
