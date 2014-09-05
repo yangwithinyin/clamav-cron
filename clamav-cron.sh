@@ -47,7 +47,7 @@ CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
-CV_VERSION_FORK="0.8"
+CV_VERSION_FORK="0.8.3"
 
 if [ -e $CV_LOGFILE ]
 then
@@ -69,7 +69,7 @@ echo -e Script: clamav-cron v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagna
 echo -e Script: `basename $0` v. $CV_VERSION_FORK - Copyright 2014, by Mark Parraway  >> $CV_LOGFILE
 echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 
-# /usr/local/bin/%stuff% may need to be symlinked up
+# /usr/local/bin/stuff may need to be symlinked up
 # easy symlink in your OS setup script
 # you may use debian-setup.sh to set this up
 
@@ -84,7 +84,7 @@ CLAMSCAN=$?
 if [ "$CLAMSCAN" -eq "1" ]
 then
         CV_SUBJECT="[VIRUS!] "$CV_SUBJECT
-        /usr/local/bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILEcl
+        /usr/local/bin/mail -s "$CV_SUBJECT" -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 elif [ "$CLAMSCAN" -gt "1" ]
 then
         CV_SUBJECT="[ERR] "$CV_SUBJECT
