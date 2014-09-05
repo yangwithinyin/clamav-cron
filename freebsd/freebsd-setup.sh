@@ -1,15 +1,23 @@
 #!/bin/bash
+
+# =============================================================================
+# - title        : Quick setup script for BSD based systems
+# - description  : Initiates quick setup process for clamav-cron
+# - author       : Mark Parraway
+# - date         : 2014-09-04
+# - version      : 0.8.3
+# - usage        : bash freebsd-setup.sh
+# - oses         : FreeBSD
+# =============================================================================
 #
-# clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
-# clamav-cron easy v. 0.8.2 - Created by Mark Parraway
+# - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
+# - site         : https://code.google.com/p/clamav-cron/
+#
+#
 # This is Free Software released under the GNU GPL license version 3
 #
-# freebsd-setup.sh - quick FreeBSD setup script tested on FreeBSD 8.4-RELEASE
-#
 
-#============================================#
-#        DO NOT EDIT DO NOT EDIT             #
-#============================================#
+cd ~
 
 # Update ports
 
@@ -27,17 +35,15 @@ freshclam
 # Download, configure, and setup symlinks for clamav-cron
 
 cd ~
-wget --no-check-certificate https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
+wget --no-check-certificate https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd/clamav-cron.sh
 cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
-ln -s /usr/local/bin/clamscan  /usr/bin/clamscan
-ln -s /usr/local/bin/freshclam /usr/bin/freshclam
-ln -s /usr/sbin/sendmail /bin/mail
+ln -s /usr/sbin/sendmail /usr/local/bin/mail
 chown -R clamav:clamav /var/log/clamav
 touch /var/log/clamav/clamav-cron.log
 
 # Make sure to configure/setup sendmail
 
-# FreeBSD specific daemon settings and startup
+# FreeBSD specific daemon settings and startup (required)
 
 echo '## Enable clamav ##' >> /etc/rc.conf
 echo 'clamav_clamd_enable="YES"' >> /etc/rc.conf
