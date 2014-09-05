@@ -13,7 +13,7 @@
 
 apt-get -y update && apt-get -y install clamav clamav-daemon sendmail
 cd ~
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/0.8.1/clamav-cron.sh
 ln -s /usr/sbin/sendmail /bin/mail
 cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
 chmod 755 /usr/local/bin/clamav-cron.sh
