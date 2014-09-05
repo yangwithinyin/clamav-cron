@@ -8,7 +8,7 @@
 # - date         : 2014-09-04
 # - version      : 0.8.3
 # - usage        : bash debian-setup.sh
-# - OS Supported : Debian
+# - oses         : Debian
 # =============================================================================
 #
 # - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro

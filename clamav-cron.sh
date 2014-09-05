@@ -7,7 +7,7 @@
 # - date         : 2014-09-04
 # - version      : 0.8.3
 # - usage        : bash clamav-cron.sh
-# - oses         : Linux
+# - oses         : Linux, BSD
 # =============================================================================
 #
 # - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
@@ -69,7 +69,7 @@ echo -e Script: clamav-cron v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagna
 echo -e Script: `basename $0` v. $CV_VERSION_FORK - Copyright 2014, by Mark Parraway  >> $CV_LOGFILE
 echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 
-# /usr/local/bin/stuff may need to be symlinked
+# /usr/local/bin/%stuff% may need to be symlinked up
 # easy symlink in your OS setup script
 # you may use debian-setup.sh to set this up
 
