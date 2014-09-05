@@ -51,7 +51,7 @@ CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
-CV_VERSION_FORK="0.8"
+CV_VERSION_FORK="0.8.3"
 
 if [ -e $CV_LOGFILE ]
 then
