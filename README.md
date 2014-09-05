@@ -41,7 +41,7 @@ Debian/Ubuntu quick setup (debian-setup.sh)
 ```
 mkdir -p /opt/clamav-cron
 cd /opt/clamav-cron
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian-setup.sh
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian/debian-setup.sh
 chmod 755 debian-setup.sh
 ```
 
@@ -49,7 +49,7 @@ FreeBSD quick setup (freebsd-setup.sh)
 ```
 mkdir -p /opt/clamav-cron
 cd /opt/clamav-cron
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd-setup.sh
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/freebsd/freebsd-setup.sh
 chmod 755 freebsd-setup.sh
 ```
 
