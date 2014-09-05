@@ -1,38 +1,55 @@
 #!/bin/bash
+
+
+# =============================================================================
+# - title        : Quick setup script for Debian based systems
+# - description  : Initiates quick setup process for clamav-cron
+# - author       : Mark Parraway
+# - date         : 2014-09-04
+# - version      : 0.8.3
+# - usage        : bash debian-setup.sh
+# - OS Supported : Debian
+# =============================================================================
 #
-# clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
-# clamav-cron easy v. 0.8.2 - Created by Mark Parraway
+# - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
+# - site         : https://code.google.com/p/clamav-cron/
+#
+#
 # This is Free Software released under the GNU GPL license version 3
 #
-# debian-setup.sh - quick Debian based setup script tested on Ubuntu 12.04 LTS
-#
 
-#============================================#
-#        DO NOT EDIT DO NOT EDIT             #
-#============================================#
+cd ~
 
-# Update packages, setup clamav and sendmail
+# Update aptitude
+apt-get -y update
 
-apt-get -y update && apt-get -y install clamav clamav-daemon sendmail
+echo "You chose to use the clamav-cron easy w/ clamav clamav-daemon and sendmail."
+
+apt-get install clamav clamav-daemon sendmail
+
+wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/debian/clamav-cron.sh
 
 # Update virus definitions
 
 freshclam
 
-# Download, configure, and setup symlinks for clamav-cron
+# Configure, and setup symlinks for clamav-cron
 
 cd ~
-wget https://raw.githubusercontent.com/yangwithinyin/clamav-cron/master/clamav-cron.sh
-ln -s /usr/sbin/sendmail /bin/mail
+ln -s /usr/sbin/sendmail /usr/local/bin/mail
 cp clamav-cron.sh /usr/local/bin/clamav-cron.sh
 chmod 755 /usr/local/bin/clamav-cron.sh
-ln -s /usr/bin/clamdscan /usr/local/bin/clamscan
+ln -s /usr/bin/clamdscan /usr/local/bin/clamdscan
+ln -s /usr/bin/clamscan /usr/local/bin/clamscan
+ln -s /usr/bin/freshclam /usr/local/bin/freshclam
 chown clamav:clamav /usr/local/bin/clamav-cron.sh
 chown clamav:clamav /var/log/clamav
 chown root: /var/lib/clamav
 chmod g+w /var/lib/clamav
 touch /var/log/clamav/clamav-cron.log
 
-# Debian clamav daemon restart
+# Debian clamav daemon restart 
+#(you should do this after running)
 
 service clamav-daemon restart
+
