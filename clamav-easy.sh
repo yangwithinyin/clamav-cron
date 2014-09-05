@@ -2,7 +2,7 @@
 
 # =============================================================================
 # - title        : Scanning and mailing script for crontab scans
-# - description  : Initiates scan targets on clamscand (ClamAV daemon clamd)
+# - description  : Initiates scan targets on clamdscan (ClamAV daemon clamd)
 # - author       : Mark Parraway
 # - date         : 2014-09-04
 # - version      : 0.8.3
@@ -74,7 +74,7 @@ echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 #To be read on stdout (and root mail):
 echo -e '------------------------------------\n'
 
-# Change directory for clamscand
+# Change directory for clamdscan
 
 cd /
 
@@ -82,7 +82,7 @@ cd /
 # easy symlink in your OS setup script
 # e.g. debian-setup.sh
 
-/usr/local/bin/clamscand --fdpass --log=$CV_LOGFILE --file-list=/tmp/clamscand.files
+/usr/local/bin/clamdscan --fdpass --log=$CV_LOGFILE --file-list=/tmp/clamdscan.files
 
 CLAMSCAN=$?
 
