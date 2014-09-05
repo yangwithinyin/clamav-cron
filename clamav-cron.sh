@@ -60,13 +60,13 @@ then
 fi
 
 #To be read on stdout (and root mail):
-echo -e `basename $0` v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagnaro '\n'
-echo -e `basename $0` v. $CV_VERSION_FORK - Modified by Mark Parraway '\n'
+echo -e clamav-cron v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagnaro '\n'
+echo -e `basename $0` v. $CV_VERSION_FORK - Copyright 2014, Mark Parraway '\n'
 
 #To be read on logfile (sent via sendmail):
 echo -e $CV_SUBJECT - $(date) '\n' >> $CV_LOGFILE
-echo -e Script: `basename $0` v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagnaro  >> $CV_LOGFILE
-echo -e Script: `basename $0` v. $CV_VERSION_FORK - Modified by Mark Parraway  >> $CV_LOGFILE
+echo -e Script: clamav-cron v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagnaro  >> $CV_LOGFILE
+echo -e Script: `basename $0` v. $CV_VERSION_FORK - Copyright 2014, by Mark Parraway  >> $CV_LOGFILE
 echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 
 # /usr/local/bin may need to be symlinked
