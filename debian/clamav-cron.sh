@@ -136,9 +136,9 @@ CLAMSCAN=$?
 if [ "$CLAMSCAN" -eq "1" ]
 then
         CV_SUBJECT="[VIRUS!] "$CV_SUBJECT
-        /bin/mail -s $CV_SUBJECT -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
+        /usr/local/bin/mail -s $CV_SUBJECT -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 elif [ "$CLAMSCAN" -gt "1" ]
 then
         CV_SUBJECT="[ERR] "$CV_SUBJECT
-        /bin/mail -s $CV_SUBJECT -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
+        /usr/local/bin/mail -s $CV_SUBJECT -c $CV_MAILTO_CC $CV_MAILTO -- -f $CV_MAILFROM < $CV_LOGFILE
 fi
