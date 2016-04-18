@@ -4,8 +4,8 @@
 # - title        : Scanning and mailing script for crontab scans
 # - description  : Initiates scan targets on clamscand (ClamAV daemon clamd)
 # - author       : Mark Parraway
-# - date         : 2014-09-04
-# - version      : 0.8.3
+# - date         : 2016-04-18
+# - version      : 0.8.4q
 # - usage        : bash clamav-cron.sh
 # - oses         : Debian, FreeBSD
 # =============================================================================
@@ -15,6 +15,10 @@
 #
 #
 # This is Free Software released under the GNU GPL license version 3
+#
+#
+# - 0.8.4 fixes : log perms issue, file size increase, /var/db/clamav scan skip
+# - 0.8.4q fixes: perm issues on /var/db
 #
 #===========================================#
 #        CRONTAB SETUP INSTRUCTIONS         #
@@ -51,7 +55,7 @@ CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
-CV_VERSION_FORK="0.8.3"
+CV_VERSION_FORK="0.8.4q"
 
 if [ -e $CV_LOGFILE ]
 then
@@ -72,6 +76,11 @@ echo -e $CV_SUBJECT - $(date) '\n' >> $CV_LOGFILE
 echo -e Script: clamav-cron v. $CV_VERSION_ORIG - Copyright 2009, Stefano Stagnaro  >> $CV_LOGFILE
 echo -e Script: `basename $0` v. $CV_VERSION_FORK - Copyright 2014, Mark Parraway  >> $CV_LOGFILE
 echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
+
+# fixes running cron @root for /var/db/clamav database perms
+
+chown -R :wheel /var/db/clamav
+chmod +w clamav
 
 # /usr/local/bin/stuff may need to be symlinked
 # easy symlink in your OS setup script
