@@ -17,7 +17,7 @@
 # This is Free Software released under the GNU GPL license version 3
 #
 # - 0.8.4 fixes  : log perms issue, file size increase, /var/db/clamav scan skip
-# - 0.8.4q fixes : perm issues on /var/db 
+# - 0.8.4q fixes : perm issues on /var/db/clamav
 #
 #===========================================#
 #        CRONTAB SETUP INSTRUCTIONS         #
@@ -77,7 +77,7 @@ echo -e Scanned: $CV_TARGET on $HOSTNAME'\n' >> $CV_LOGFILE
 # fixes running cron @root for /var/db/clamav database perms
 
 chown -R :wheel /var/db/clamav
-chmod +w clamav
+chmod +w /var/db/clamav
 
 # /usr/local/bin/stuff may need to be symlinked up
 # easy symlink in your OS setup script
