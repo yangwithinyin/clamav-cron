@@ -4,6 +4,5 @@
 # fixes for running cron @root
 # clamav is @nologin shell
 
-cd /var/db
-chown :wheel clamav
+chown -R :wheel /var/db/clamav
 chmod +w clamav
