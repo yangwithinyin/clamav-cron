@@ -1,14 +1,13 @@
 #!/bin/bash
 
-#
 # =============================================================================
 # - title        : Scanning and mailing script for crontab scans
-# - description  : Initiates a clamscan (without a daemon) on system
+# - description  : Initiates a clamscan (without a daemon) on a FreeBSD system
 # - author       : Mark Parraway
 # - date         : 2016-04-18
 # - version      : 0.8.4q
 # - usage        : bash clamav-cron.sh
-# - oses         : Debian, FreeBSD
+# - oses         : FreeBSD
 #
 # =============================================================================
 #
@@ -17,20 +16,20 @@
 #
 # This is Free Software released under the GNU GPL license version 3
 #
-#
-# =============================================================================
-#
 # - 0.8.4 fixes  : log perms issue, file size increase, /var/db/clamav scan skip
-# - 0.8.4 bugs   : perm issues on /var/db
 # - 0.8.4q fixes : perm issues on /var/db 
 #
-# Add to crontab, e.g. crontab -e
-# 45 23 * * 5 /usr/local/bin/clamav-cron.sh /
+#===========================================#
+#        CRONTAB SETUP INSTRUCTIONS         #
+#===========================================#
 #
-
+# Add to crontab, e.g. crontab -e
+# 45 23 * * 5 /usr/local/bin/clamav-cron2.sh /
+#
 #============================================#
 #        User configuration section          #
 #============================================#
+#
 
 # Log file name and its path:
 #CV_LOGFILE="$HOME/clamav-cron.log"
@@ -50,7 +49,7 @@ CV_SUBJECT="Your Organization - Critical ClamAV scan report"
 
 CV_TARGET="$1"
 CV_VERSION_ORIG="0.6"
-CV_VERSION_FORK="0.8.4"
+CV_VERSION_FORK="0.8.4q"
 
 if [ -e $CV_LOGFILE ]
 then
