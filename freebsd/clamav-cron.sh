@@ -7,7 +7,7 @@
 # - date         : 2016-04-18
 # - version      : 0.8.4q
 # - usage        : bash clamav-cron.sh
-# - oses         : Debian, FreeBSD
+# - oses         : FreeBSD
 # =============================================================================
 #
 # - fork         : clamav-cron v. 0.6 - Copyright 2009, Stefano Stagnaro
