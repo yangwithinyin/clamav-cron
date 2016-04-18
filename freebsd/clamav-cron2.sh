@@ -2,7 +2,7 @@
 
 # =============================================================================
 # - title        : Scanning and mailing script for crontab scans
-# - description  : Initiates a clamscan (without a daemon) on a FreeBSD system
+# - description  : Initiates a clamscan (without a daemon)
 # - author       : Mark Parraway
 # - date         : 2016-04-18
 # - version      : 0.8.4q
